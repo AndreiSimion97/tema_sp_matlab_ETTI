@@ -1,19 +1,32 @@
-l1 = [-1, 1];
-l2 = [-3, -1, 1, 3];
-l3 = [-5, -3, -1, 1, 3, 5];
-l4 = [-7, -5, -3, -1, 1, 3, 5, 7];
-durataNivel = 0.25;%? durata de nivel nu stiu sa o folosesc
-L = {l1,l2,l3, l4};
-%for i=1:length(L)
- % l = L{i};
-  %semnal = square(l);
-  %plot(l,semnal);
-%endfor
-i = 4;
-arr = l1; 
-while i > 1
-  l = L{floor(unifrnd(2,5))};
-  plot(l,square(l));
-  i = i - 1;
-endwhile
+f=4;
+t=0:0.002:0.5
+s=square(2*pi*f*t)
+s(find(t>=0 & t<0.25))=1;
+s(find(t>=0.25 & t<0.5))=-1;
+figure(1)
+plot(t,s)
+xlabel('Timp [s]'),ylabel('Amplitudine'),grid
+
+%Rezolutia temporara este 20ms
+%Punctul a)
+f=4;
+t=0:0.02:0.5
+s=square(2*pi*f*t)
+s(find(t>=0 & t<0.25))=1;
+s(find(t>=0.25 & t<0.5))=-1;
+figure(2)
+plot(t,s)
+xlabel('Timp [s]'),ylabel('Amplitudine'),grid
+
+%Rezolutia temporara este 200ms
+
+f=4;
+t=0:0.2:0.5
+s=square(2*pi*f*t)
+s(find(t>=0 & t<0.25))=1;
+s(find(t>=0.25 & t<0.5))=-1;
+figure(3)
+plot(t,s)
+xlabel('Timp [s]'),ylabel('Amplitudine'),grid
+
 
